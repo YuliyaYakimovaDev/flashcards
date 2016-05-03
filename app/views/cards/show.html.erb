@@ -1,5 +1,6 @@
-   <tr>
-     <td><%= @card.original_text %></td>
-     <td><%= @card.translated_text %></td>
-     <td><%= @card.review_date.try(:strftime, '%d/%m/%Y') %></td>
-   </tr>
+<h1>Show card</h1>
+<%= simple_form_for @card, url: cards_path(@card) do |f| %>
+  <%= render :partial => 'form' %>
+<% end %>
+<%= link_to 'Edit card', edit_card_path(@card) %> |
+<%= link_to 'Back to the Cards List', cards_path %>

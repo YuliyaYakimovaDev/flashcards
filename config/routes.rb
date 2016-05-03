@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
+  get '/index' => 'home#index', as: 'home_path'
   #get 'home/cards'
   get '/cards' => 'cards#index', as: 'cards_path'
+  get '/show' => 'cards#show', as: 'show_cards_path'
+  get '/new' => 'cards#new', as: 'new_card_path'
+  get '/edit' => 'cards#edit', as: 'edit_cards_path'
+  get '/destroy' => 'cards#destroy', as: 'destroy_card_path'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :cards
