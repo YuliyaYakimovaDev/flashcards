@@ -1,17 +1,23 @@
-<h1>Listing cards</h1>
-
+<h1>Listing Cards</h1>
+<%= link_to 'New card', new_card_path %>
 <table>
   <tr>
-    <th>original_text</th>
-    <th>translated_text</th>
-    <th>review_date</th>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="3"></th>
   </tr>
 
   <% @cards.each do |card| %>
     <tr>
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
-      <td><%= card.review_date.try(:strftime, '%d/%m/%Y') %></td>
+      <td><%= card.review_date %></td>
+      <td><%= link_to 'Show', card_path(card) %></td>
+      <td><%= link_to 'Edit', edit_card_path(card) %></td>
+      <td><%= link_to 'Destroy', card_path(card),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
+<p><%= link_to 'Back to Home page', index_path %></p>

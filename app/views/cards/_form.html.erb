@@ -1,0 +1,35 @@
+<%= simple_form_for(@card) do |f| %>
+
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@card.errors.count, "error") %> prohibited
+        this card from being saved:
+      </h2>
+      <ul>
+        <% @card.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+  <p>
+    <%= f.label :"Original text" %>
+    <%= f.text_field :original_text %>
+  </p>
+
+    <p>
+      <%= f.label :"Translated text" %>
+      <%= f.text_field :translated_text %>
+    </p>
+
+    <p>
+      <%= f.label :"Review date" %>
+      <%= f.input :review_date %>
+    </p>
+
+    <%= f.submit %>
+
+<% end %>
+<p><%= link_to 'Back to Home page', index_path %></p>
