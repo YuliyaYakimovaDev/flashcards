@@ -1,4 +1,4 @@
 <h1>Edit card</h1>
-<%= simple_form_for @card, url: card_path, method: :patch do |f| %>
+<%= simple_form_for @card do |f| %>
   <%= render :partial => 'form' %>
 <% end %>
