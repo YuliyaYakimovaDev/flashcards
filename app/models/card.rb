@@ -5,10 +5,7 @@ class Card < ActiveRecord::Base
   before_create :set_time_to_now
 
   def check_original_and_translated_text
-    if original_text == translated_text
-      errors.add(:original_text, "can't be similar as translated text")
-    end
-    if original_text == translated_text.capitalize
+    if original_text == translated_text || original_text == translated_text.capitalize
       errors.add(:original_text, "can't be similar as translated text")
     end
   end
