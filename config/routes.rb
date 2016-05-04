@@ -2,13 +2,7 @@ Rails.application.routes.draw do
 
   get '/index' => 'home#index'
   #get 'home/cards'
-  get '/cards' => 'cards#index'
-  get '/show' => 'cards#show'
-  get '/new' => 'cards#new'
-  get '/edit' => 'cards#edit'
-  patch '/update' => 'cards#update'
-  post '/destroy' => 'cards#destroy'
-  # The priority is based upon order of creation: first created -> highest priority.
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :cards
   # You can have the root of your site routed with "root"
