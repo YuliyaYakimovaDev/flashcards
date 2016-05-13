@@ -6,9 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-
-<%= yield %>
-
-</body>
-</html>
+  <section id="container">
+    <header class="clearfix">
+      <h1>Flashcards</h1>
+      <ul class="navigation-links">
+        <li><%= link_to "All cards", cards_path %></li>
+        <li><%= link_to "Add card", new_card_path %></li>
+      </ul>
+    </header>
+    <p style="font-size: 22px;">
+      Первый в мире удобный менеджер флеш-карточек. Именно так.
+    </p>
+    <%= yield %>
+    </section>
+  </body>

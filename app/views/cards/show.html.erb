@@ -1,6 +1,4 @@
 <h1>Show card</h1>
-<%= simple_form_for @card do |f| %>
-  <%= render :partial => 'form' %>
-<% end %>
+<%= render :partial => 'form' %>
 <%= link_to 'Edit card', edit_card_path(@card) %> |
 <%= link_to 'Back to the Cards List', cards_path %>

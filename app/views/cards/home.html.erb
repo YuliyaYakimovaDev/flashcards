@@ -1,0 +1,13 @@
+<% if @card %>
+  <%= @card.translated_text %>
+  <%= form_tag search_path do %>
+    <%= hidden_field_tag(:card_id, @card.id) %>
+    <%= label_tag "Translate:" %>
+    <%= text_field_tag  :answer %>
+    <%= submit_tag("Check your answer") %>
+  <% end %>
+<% end %>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end %>

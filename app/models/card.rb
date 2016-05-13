@@ -11,6 +11,18 @@ class Card < ActiveRecord::Base
   end
 
   def set_time_to_now
-    self.review_date = Time.now + 3.days
+    self.review_date = Date.today + 3.days
+  end
+
+  scope :expired_card, -> { where("review_date <= ?", Date.today) }
+
+  def self.random_card
+    expired_card.order('RANDOM()').take
+  end
+
+  def check_answer(answer)
+    if answer == original_text
+      update_attributes(review_date: Date.today + 3.days)
+    end
   end
 end
