@@ -4,16 +4,6 @@ describe Card do
 
   let(:card) { create(:card, original_text: "fox", translated_text: "lisa")}
 
-  it 'create card with empty translated text' do
-    card = Card.create(original_text: 'fox', translated_text: '')
-    expect(card.errors[:translated_text]).to include("can't be blank")
-  end
-
-  it 'create card with empty original text' do
-    card = Card.create(original_text: '', translated_text: 'lisa')
-    expect(card.errors[:original_text]).to include("can't be blank")
-  end
-
   it "opiginal and tranlation are equal" do
     card = Card.new(original_text: "fox", translated_text: "fox")
     expect(card.check_original_and_translated_text).to include("can't be similar as translated text")
