@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "Check card" do
 
   before(:each) do
-    @card = create(:card, original_text: "fox", translated_text: "lisa", review_date: Date.today)
+    @card = create(:card)
+    @card.update(review_date: Date.today)
     visit root_path
   end
 
@@ -13,7 +14,7 @@ describe "Check card" do
   end
 
   it "correct answer" do
-    fill_in :answer, with: @card.translated_text
+    fill_in :answer, with: @card.original_text
     click_button 'Check your answer'
     expect(page).to have_content('Correct!')
   end

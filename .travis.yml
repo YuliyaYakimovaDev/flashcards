@@ -2,9 +2,6 @@ language: ruby
 rvm:
   - 2.3.0
 
-addons:
-  postgresql: "9.5.2"
-
 services:
   - postgresql
 
@@ -12,5 +9,6 @@ script:
   - bundle exec rspec
 
 before_script:
-  - cp config/database.yml.travis config/database.yml  
-  - psql -c 'create database travis_ci_test;' -U yuliya
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - RAILS_ENV=test bundle exec rake db:create
