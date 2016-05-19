@@ -21,7 +21,7 @@ class Card < ActiveRecord::Base
   end
 
   def check_answer(answer)
-    if answer == original_text
+    if answer.downcase == original_text.downcase
       update_attributes(review_date: Date.today + 3.days)
     end
   end
