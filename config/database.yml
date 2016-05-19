@@ -29,7 +29,7 @@ development:
   encoding: unicode
   database: flashcards_development
   pool: 5
-  username: yuliya
+  username: postgres
   template: template0
 
 test:
@@ -37,5 +37,5 @@ test:
   encoding: unicode
   database: flashcards_development
   pool: 5
-  username: yuliya
+  username: postgres
   template: template0
