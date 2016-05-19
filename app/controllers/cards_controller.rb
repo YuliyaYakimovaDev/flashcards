@@ -7,9 +7,9 @@ class CardsController < ApplicationController
   def check
     @card = Card.find(params[:card_id])
     if @card.check_answer(params[:answer])
-      redirect_to :back, notice: "Правильно!"
+      redirect_to :back, notice: "Correct!"
     else
-      redirect_to :back, notice: "Неправильно!"
+      redirect_to :back, notice: "Incorrect!"
     end
   end
 
