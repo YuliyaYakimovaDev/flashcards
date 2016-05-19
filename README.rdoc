@@ -1,1 +1,1 @@
-### Build Status travis-ci.org/YuliyaYakimovaDev/flashcards
+Build status https://travis-ci.org/YuliyaYakimovaDev/flashcards
