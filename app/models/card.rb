@@ -3,6 +3,7 @@ class Card < ActiveRecord::Base
   validates :original_text, uniqueness: true
   validate :check_original_and_translated_text
   before_create :set_time_to_now
+  belongs_to :user
 
   def check_original_and_translated_text
     if original_text == translated_text || original_text == translated_text.capitalize
