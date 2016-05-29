@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'cards#home'
   post "search" => "cards#check"
+  
   resources :cards
+  resources :users_sessions
   resources :users
+
+  get 'login' => 'users_sessions#new', :as => :login
+  post 'logout' => 'users_sessions#destroy', :as => :logout
   # You can have the root of your site routed with "root"
 
   # Example of regular route:
