@@ -1,8 +1,12 @@
 require 'rails_helper'
 
-describe Card do
+  describe Card do
 
-  let(:card) { create(:card, original_text: "fox", translated_text: "lisa")}
+    let(:user) { create(:user) }
+
+    before(:each) do
+      login
+    end
 
   it "opiginal and tranlation are equal" do
     card = Card.new(original_text: "fox", translated_text: "fox")

@@ -7,14 +7,12 @@ class CardsController < ApplicationController
 
   def check
     @card = current_user.cards.find_by(id: params[:card_id])
-
     if @card.check_translation(params[:answer])
       redirect_to :back, notice: "Верный ответ!"
     else
       redirect_to :back, notice: "Неверный ответ("
     end
   end
-
   def index
     @cards = current_user.cards
   end
@@ -44,13 +42,12 @@ class CardsController < ApplicationController
   end
 
   private
+    def set_user
+      @card = current_user.cards.find_by(id: params[:id])
+      redirect_to cards_path if @card.nil?
+    end
 
-  def set_user
-    @card = current_user.cards.find_by(id: params[:id])
-    redirect_to cards_path if @card.nil?
-  end
-
-  def card_params
-    params.require(:card).permit(:original, :translated, :review)
-  end
+    def card_params
+      params.require(:card).permit(:original, :translated, :review)
+    end
 end

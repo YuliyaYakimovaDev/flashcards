@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-  attr_accessor :salt, :crypted_password
-
   has_many :cards, :dependent => :destroy
 
   authenticates_with_sorcery!
