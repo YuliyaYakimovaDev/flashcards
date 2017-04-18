@@ -4,6 +4,7 @@ class Card < ActiveRecord::Base
   validate :check_original_and_translated_text
   before_create :set_time_to_now
   belongs_to :user
+  validates :user_id, presence: true
 
   def check_original_and_translated_text
     if original_text == translated_text || original_text == translated_text.capitalize
